@@ -1,1 +1,1 @@
-# Sabor-Express-Teo
+# Global-Explorer - Projeto em Python com Teo
