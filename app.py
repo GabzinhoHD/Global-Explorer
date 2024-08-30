@@ -17,8 +17,11 @@ def exibir_opcao():
 def escolher_opcao():
 
     def exibir_subtitulo(texto):
-        os.system('clear')
+        os.system('cls')
+        linha = "*" * len(texto)
+        print(linha)
         print(texto)
+        print(linha)
         print(" ")
 
     def retorna_menu():
@@ -40,8 +43,8 @@ def escolher_opcao():
         for viagem in viagens:
             nome_pessoa = viagem["nome"]
             destino_pessoa = viagem["destino"]
-            ativo = viagem["ativo"]
-            print(f" - {nome_pessoa} | {destino_pessoa} | {ativo} ")
+            ativo = "ativo" if viagem["ativo"] else "desativado"
+            print(f" | {nome_pessoa.ljust(20)} | {destino_pessoa.ljust(20)} | {ativo} ")
         retorna_menu()
 
     def ativar_cadrastro():
@@ -49,18 +52,18 @@ def escolher_opcao():
         nome_pessoa = input("Digite o nome para ativar a viagem: ")
         nome_encontro = False
         for viagem in viagens:
-            if nome_pessoa ==viagem["nome"]:
+            if nome_pessoa == viagem["nome"]:
                 nome_encontro = True
-                Viagem["ativo"] = not viagem
-                mensagem = f"{nome_pessoa} teve sua viagem ativada" if viagem{"ativo"} else f"O cadrastro de {nome_pessoa} teve a viagem desativada"
+                viagem["ativo"] = not viagem["ativo"]
+                mensagem = f"{nome_pessoa} teve sua viagem ativada" if viagem["ativo"] else f"O cadrastro de {nome_pessoa} teve a viagem desativada"
                 print(mensagem)
-            if not nome_encontro:
-                print("Nao encontrado, favor digite")
+        if not nome_encontro:
+            print("Nao encontrado, favor digite para voltar")
         retorna_menu()
         
 
     def finalizar_app():
-        os.system('clear')
+        os.system('cls')
         print("Finalizando programa")
 
     def opcao_invalida():
@@ -84,7 +87,7 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
-    os.system('clear')
+    os.system('cls')
     exibir_titulo()
     exibir_opcao()
     escolher_opcao()
