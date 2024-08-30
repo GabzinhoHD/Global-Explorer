@@ -17,7 +17,7 @@ def exibir_opcao():
 def escolher_opcao():
 
     def exibir_subtitulo(texto):
-        os.system('cls')
+        os.system('clear')
         print(texto)
         print(" ")
 
@@ -30,7 +30,8 @@ def escolher_opcao():
         exibir_subtitulo("Cadastro de viagens")
         nome_pessoa = input("Digite seu nome: ")
         destino_pessoa = input(f"Insira seu destino: ")
-        viagens.append(destino_pessoa)
+        dados_da_pessoa = {"nome":nome_pessoa, "destino":destino_pessoa, "ativo":True}
+        viagens.append(dados_da_pessoa)
         print(f" A viagem {nome_pessoa} foi cadrastada com exito")
         retorna_menu()
 
@@ -45,11 +46,21 @@ def escolher_opcao():
 
     def ativar_cadrastro():
         exibir_subtitulo("Ativar cadastro de viagem")
+        nome_pessoa = input("Digite o nome para ativar a viagem: ")
+        nome_encontro = False
+        for viagem in viagens:
+            if nome_pessoa ==viagem["nome"]:
+                nome_encontro = True
+                Viagem["ativo"] = not viagem
+                mensagem = f"{nome_pessoa} teve sua viagem ativada" if viagem{"ativo"} else f"O cadrastro de {nome_pessoa} teve a viagem desativada"
+                print(mensagem)
+            if not nome_encontro:
+                print("Nao encontrado, favor digite")
         retorna_menu()
         
 
     def finalizar_app():
-        os.system('cls')
+        os.system('clear')
         print("Finalizando programa")
 
     def opcao_invalida():
@@ -73,7 +84,7 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
-    os.system('cls')
+    os.system('clear')
     exibir_titulo()
     exibir_opcao()
     escolher_opcao()
