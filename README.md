@@ -1,1 +1,1 @@
-# Global-Explorer - Projeto em Python com Teo
+# Global-Explorer - 1º Projeto em Python
